@@ -1,0 +1,46 @@
+name: Publish to ClawHub + HuggingFace
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  clawhub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm i -g clawhub
+      - name: Publish to ClawHub
+        env:
+          CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
+        run: |
+          mkdir -p skills/zero-token
+          cp SKILL.md SOUL.md LICENSE README.md skills/zero-token/
+          cd skills && clawhub sync --all --no-input
+
+  huggingface:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Publish to HuggingFace
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install huggingface_hub
+          python3 << 'PYEOF'
+          import os
+          from huggingface_hub import HfApi
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          for f in ["SKILL.md","SOUL.md","README.md","README.zh-CN.md","LICENSE"]:
+              if os.path.exists(f):
+                  api.upload_file(path_or_fileobj=f, path_in_repo=f, repo_id="ilanguage/zero-token", repo_type="model")
+                  api.upload_file(path_or_fileobj=f, path_in_repo=f, repo_id="ilanguage/zero-token-soul", repo_type="dataset")
+          print("Done")
+          PYEOF
