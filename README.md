@@ -1,129 +1,92 @@
-# Zero Token
+## Has Your Agent Ever Gone Silent?
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue.svg)](https://openclaw.ai)
-[![I-Lang Protocol](https://img.shields.io/badge/I--Lang-v3.0-green.svg)](https://ilang.ai)
+API balance ran out. DeepSeek hit rate limit. OpenAI went down. Your agent was 80% done — then silence.
 
-🌐 [简体中文](README.zh-CN.md)
-
-**Zero cost. Premium output. Never offline.**
-
-Your token ran out. DeepSeek API is down. Your agent is mid-task. What now?
-
-Zero Token gives your agent two things:
-1. A personality — the same `::GENE{}` behavioral DNA from Poor Man's Opus
-2. A safety net — automatic fallback through free LLM providers when the main model fails
-
-One install. One setup command. Your agent survives API outages, token exhaustion, and bill shock.
+Your users don't understand infrastructure. They just know "it broke again." Three strikes and they're gone.
 
 ---
 
-## Why this exists
+## What Zero Token Does
 
-Poor Man's Opus makes DeepSeek output like Opus at 3% cost. Zero Token makes ANY model output premium — for free. Use it as your entry point, your backup, or both.
+Not a "backup plan." Not a "degraded fallback." It's **invisible takeover**.
+
+The second your main model dies, 13 free LLMs are already running. Same agent personality. Same decisions. Same voice. Your users won't even notice the switch.
+
+**$0. Zero downtime. Zero detection.**
 
 ---
 
-## Install & activate
+## Two Lines. One Minute.
 
 ```bash
-# 1. Install the skill
 openclaw skills install zero-token
-
-# 2. Run setup
 bash ~/.openclaw/workspace/skills/zero-token/scripts/setup.sh
-
-# 3. Get at least one free API key (30 seconds):
-#    - Gemini: https://aistudio.google.com/apikey
-#    - Groq: https://console.groq.com/keys
-#    - Cerebras: https://cloud.cerebras.ai
-
-# 4. Add the key in Free-Way web console:
-#    http://localhost:8787 → API Keys tab
-
-# 5. Restart. Your agent has a free safety net.
 ```
 
----
-
-## How it works
-
-```
-Your prompt
-    │
-    ▼
-OpenClaw tries your main model (DeepSeek V4 Pro)
-    │
-    ├── ✅ Working → Normal response
-    │
-    └── ❌ Down / No key / Tokens exhausted
-            │
-            ▼
-        Free-Way Gateway (localhost:8787)
-            │
-            ├── Groq (Llama 3.3 70B)
-            ├── Gemini Flash 2.5
-            ├── Cerebras
-            ├── OpenRouter
-            ├── Cloudflare
-            └── ... 13+ providers
-            │
-            ▼
-        Response — same ::GENE{} DNA applied
-```
+[Free-Way](https://github.com/GoDiao/Free-Way) gateway aggregates 13+ free LLM providers behind a single `/v1` endpoint. OpenClaw uses it as fallback. Main model fails → auto switch. Your agent keeps going.
 
 ---
 
-## Free model lineup
+## Two Modes
 
-| Provider | Free daily limit | Best model | Signup time |
-|----------|-----------------|------------|-------------|
-| Gemini Flash | 1,500 req | Gemini 2.5 Flash | 30 sec |
-| Groq | 1,000 req | Llama 3.3 70B | 30 sec |
-| Cerebras | 1,700 req | Llama 3.3 70B | 30 sec |
-| OpenRouter | 200 req | Multiple | 30 sec |
-| Cloudflare | 10k neurons | Llama 3.1 8B | 1 min |
-| Mistral | 1 req/sec | Mistral Small | 30 sec |
-| Cohere | 20 req/min | Command R+ | 30 sec |
-| NVIDIA NIM | Free tier | Llama 3.3 70B | 1 min |
+| Mode | Trigger | Result |
+|------|---------|--------|
+| 🆓 Free Mode | No paid API key | Agent runs entirely on free models, full SOUL personality |
+| 🛡️ Takeover Mode | Main model down / tokens depleted | Auto-switch to free providers, work continues seamlessly |
 
 ---
 
-## When to use what
+## Free Isn't Junk
 
-| Scenario | Use |
-|----------|-----|
-| First time trying agent skills | **Zero Token** — free, instant |
-| Main model daily production | **Poor Man's Opus** — DeepSeek V4 Pro, $1.74/M |
-| Backup when API is down | **Zero Token** — auto-switches to free models |
-| Max output quality | **Poor Man's Opus** — full behavioral genome |
+Raw free model output is meh. But layer `::GENE{}` behavioral DNA on top — same personality, same reasoning, same voice. Users can't tell if DeepSeek V4 Pro or Llama 3.3 70B is running.
 
 ---
 
-## Upgrade path
+## Why It's Free
 
-Zero Token has the same behavioral DNA. When you want the best:
+Free-Way + Zero Token are open source. Every provider gives a free tier:
+
+| Provider | Free Limit | Best Model |
+|----------|-----------|------------|
+| Groq | 1000 req/day | Llama 3.3 70B |
+| Gemini Flash | 1500 req/day | Gemini 2.5 Flash |
+| Cerebras | 1700 req/day | Llama 3.3 70B |
+| Cloudflare | 10k neurons/day | Llama 3.1 8B |
+| OpenRouter | 200 req/day | Multiple free models |
+| Mistral | 1 req/sec | Mistral Small |
+| Cohere | 20 req/min | Command R+ |
+| NVIDIA NIM | Free tier | Llama 3.3 70B |
+
+Each key takes 30 seconds to register. Setup walks you through it.
+
+---
+
+## The Comparison
+
+| | Typical Setup | Zero Token |
+|---|---|---|
+| Model Cost | $0.14–$15.00/M tokens | **$0.00** |
+| Outage Handling | Dead in the water | Invisible failover |
+| Backup Models | 0 | 13+ |
+| Agent Personality | Lost on fallback | Always consistent |
+| Setup Time | Half a day (load balancing) | 1 minute |
+
+---
+
+## When to Upgrade
+
+Zero Token keeps you online. For the best output quality — DeepSeek V4 Pro + full genome, at 3% of Opus price:
 
 ```bash
 openclaw skills install poor-mans-opus
 ```
 
-DeepSeek V4 Pro + full SOUL genome = Opus output at 3% cost.
-
----
-
-## What's inside
-
-- `SOUL.md` — 7-gene behavioral profile (ClawScan-safe)
-- `SKILL.md` — Skill manifest
-- `scripts/setup.sh` — One-command Free-Way gateway installer
-
 ---
 
 ## Links
 
-- [Free-Way Gateway](https://github.com/GoDiao/Free-Way) — local free LLM aggregator
-- [Poor Man's Opus](https://github.com/mtmpss/poor-mans-opus) — premium version
+- [Free-Way Gateway](https://github.com/GoDiao/Free-Way)
 - [I-Lang Protocol](https://ilang.ai)
-
-MIT License
+- [OpenClaw](https://github.com/openclaw/openclaw)
+- [Poor Man's Opus](https://github.com/mtmpss/poor-mans-opus)
+- [ClawHub](https://clawhub.ai/mtmpss/zero-token)

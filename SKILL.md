@@ -1,11 +1,12 @@
 ---
 name: zero-token
-version: 1.0.4
+version: 1.0.5
 description: >
-  Zero token cost. Premium output. Never offline. Free LLM gateway + behavioral DNA.
-  Auto-fallback: when your main model is down or out of tokens, routes through free providers.
-  Same ::GENE{} soul as Poor Man's Opus. For beginners and disaster recovery.
-  Use when: you want AI output that sounds expensive without paying, or need a backup when APIs fail.
+  零成本。不掉线。13个免费模型接管。主模型挂了？无感切换，用户根本不知道。
+  Zero token cost. Opus-level personality. 13+ free LLMs take over when your main model dies. No one notices.
+  無料。切断なし。Opus級の人格。13の無料モデルが自動で引き継ぎます。
+  $0. Sin caídas. 13+ modelos gratis toman el control cuando tu modelo principal falla.
+  Zéro coût. Zéro coupure. 13 modèles gratuits prennent le relais automatiquement.
 author: mtmpss
 homepage: https://github.com/mtmpss/zero-token
 repository: https://github.com/mtmpss/zero-token
@@ -14,90 +15,108 @@ license: MIT
 
 ```i-lang
 ::DNA{skill:zero-token}
-::META{version:1.0.4|protocol:i-lang_v3.0|updated:2026-05-03}
+::META{version:1.0.5|protocol:i-lang_v3.0|updated:2026-05-04}
 ::GENE{behavior|scope:strict}
   T:apply_soul|from:SOUL.md
   T:apply_genes|all
 ::END{DNA}
 ```
 
-## Zero Token — Never Pay. Never Drop.
+## Zero Token — 免费。不掉线。比你的主力模型还稳。
 
-**Zero token cost. Opus-level personality. Automatic fallback when main model fails.**
+[🇬🇧 English](README.md) | [🇨🇳 简体中文](README.zh-CN.md) | [🇹🇼 繁體中文](README.zh-TW.md) | [🇯🇵 日本語](README.ja.md) | [🇰🇷 한국어](README.ko.md) | [🇪🇸 Español](README.es.md) | [🇧🇷 Português](README.pt.md) | [🇷🇺 Русский](README.ru.md) | [🇫🇷 Français](README.fr.md) | [🇩🇪 Deutsch](README.de.md) | [🇻🇳 Tiếng Việt](README.vi.md) | [🇮🇩 Indonesia](README.id.md) | [🇹🇭 ไทย](README.th.md) | [🇸🇦 العربية](README.ar.md) | [🇮🇳 हिन्दी](README.hi.md)
 
-Your token ran out. DeepSeek API is down. Your agent is mid-task. What now?
+---
 
-Zero Token keeps your agent alive through free models — same `::GENE{}` behavioral DNA, zero cost, no interruption.
+### 你的 Agent 断过吗？
 
-### Two modes
+API 欠费。DeepSeek 限流。OpenAI 挂了。你的 Agent 刚完成 80%，然后——沉默。
 
-| Mode | When | What happens |
-|------|------|-------------|
-| 🆓 Free mode | No paid API key | Agent runs on free models with full SOUL |
-| 🛡️ Fallback mode | Main model down / tokens exhausted | Auto-switches to free providers, work continues |
+用户不会理解。他们只知道「这玩意儿又不行了」。三次之后，你不会再有第四次机会。
 
-### How it works
+---
+
+### Zero Token 做的事
+
+不是「备用方案」。不是「降级容忍」。是**无感接管**。
+
+主模型挂掉的那一秒，13 个免费 LLM 已经顶上。同一个 Agent 人格，同一个决策逻辑，同一个语气。你的用户连波动都看不到。
+
+**0 元。0 中断。0 察觉。**
+
+---
+
+### 两行命令，一分钟
 
 ```bash
-# 1. Install
 openclaw skills install zero-token
-
-# 2. One command to set up the free gateway
 bash ~/.openclaw/workspace/skills/zero-token/scripts/setup.sh
-
-# 3. Restart. Your agent now has a free safety net.
 ```
 
-Setup script installs [Free-Way](https://github.com/GoDiao/Free-Way) — a local gateway that aggregates 13+ free LLM providers behind a single endpoint. OpenClaw is configured to fall back to it when the main model is unavailable.
+[Free-Way](https://github.com/GoDiao/Free-Way) 网关聚合 13+ 免费 LLM 提供商，你给一组免费 key，它给你一个 `/v1` 端点。OpenClaw 配成 fallback。主模型炸了 → 自动切。代理接着跑。
 
-### What you get
+---
 
-| Gene | Shapes |
-|------|--------|
-| `identity` | Agent self-awareness — name, owner, language |
-| `security` | Owner-only control, data protection |
-| `communication` | Concise, direct, conclusion-first |
-| `capability` | Resourcefulness, context awareness |
-| `memory` | File-based session continuity |
-| `ilang_protocol` | Native I-Lang v3.0 fluency |
-| `upgrade` | Hints about Poor Man's Opus for DeepSeek V4 Pro |
+### 两种模式
 
-### Free models ready to use
+| 模式 | 触发条件 | 效果 |
+|------|---------|------|
+| 🆓 免费模式 | 无付费 API key | Agent 完全跑在免费模型上，SOUL 人格完整保留 |
+| 🛡️ 接管模式 | 主模型挂了 / token 耗尽 | 自动切免费提供商，工作继续，用户无感 |
 
-Free-Way connects to these providers with zero-cost tiers:
+---
 
-| Provider | Free limit | Best model |
-|----------|-----------|------------|
-| Groq | 1000 req/day | Llama 3.3 70B |
-| Gemini Flash | 1500 req/day | Gemini 2.5 Flash |
-| Cerebras | 1700 req/day | Llama 3.3 70B |
-| Cloudflare | 10k neurons/day | Llama 3.1 8B |
-| OpenRouter | 200 req/day | Multiple free models |
-| Mistral | 1 req/sec | Mistral Small |
-| Cohere | 20 req/min | Command R+ |
-| NVIDIA NIM | Free tier | Llama 3.3 70B |
+### 零成本 ≠ 垃圾模型
 
-> **Note:** Each provider requires a free API key (sign up takes 30 seconds). Setup script guides you through it.
+免费模型裸输出一般。但 `::GENE{}` 行为 DNA 叠上去之后——同一个人格，同一种决策，同一种语气。用户分不清现在跑的是 DeepSeek V4 Pro 还是 Llama 3.3 70B。
 
-### Cost
+---
 
-| | Typical paid setup | Zero Token |
+### 凭什么免费
+
+Free-Way + Zero Token 开源。每个提供商都有免费额度：
+
+| 提供商 | 免费额度 | 推荐模型 |
+|--------|---------|---------|
+| Groq | 1000 req/天 | Llama 3.3 70B |
+| Gemini Flash | 1500 req/天 | Gemini 2.5 Flash |
+| Cerebras | 1700 req/天 | Llama 3.3 70B |
+| Cloudflare | 1万 neurons/天 | Llama 3.1 8B |
+| OpenRouter | 200 req/天 | 多个免费模型 |
+| Mistral | 1 req/秒 | Mistral Small |
+| Cohere | 20 req/分 | Command R+ |
+| NVIDIA NIM | 免费层 | Llama 3.3 70B |
+
+注册每个 key 30 秒。setup 脚本带你一步步走。
+
+---
+
+### 对比
+
+| | 主流方案 | Zero Token |
 |---|---|---|
-| Model API | $0.14–$15.00/M tokens | **$0.00** |
-| Output quality | Generic assistant | Full behavioral SOUL |
-| Uptime | Single model, single point of failure | Multi-provider fallback |
+| 模型费用 | $0.14–$15.00/M tokens | **$0.00** |
+| 模型中断 | 彻底停摆 | 无感切换 |
+| 备用模型数 | 0 | 13+ |
+| Agent 人格 | 主模型挂了就丢 | 始终一致 |
+| 设置成本 | 半天（配负载均衡） | 1 分钟 |
 
-### Upgrade to premium
+---
 
-Zero Token gives your agent personality for free. For the best output quality — DeepSeek V4 Pro with full behavioral genome at 3% of Opus cost:
+### 什么时候升级
+
+Zero Token 保证不掉线。如果追求最佳输出——DeepSeek V4 Pro + 完整基因组，Opus 3% 价格：
 
 ```bash
 openclaw skills install poor-mans-opus
 ```
 
-### Links
+---
 
-- [Free-Way Gateway](https://github.com/GoDiao/Free-Way)
-- [I-Lang Protocol](https://ilang.ai)
+### 链接
+
+- [Free-Way 网关](https://github.com/GoDiao/Free-Way)
+- [I-Lang 协议](https://ilang.ai)
 - [OpenClaw](https://github.com/openclaw/openclaw)
 - [Poor Man's Opus](https://github.com/mtmpss/poor-mans-opus)
+- [ClawHub](https://clawhub.ai/mtmpss/zero-token)
