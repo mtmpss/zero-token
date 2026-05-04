@@ -1,6 +1,6 @@
 ---
 name: zero-token
-version: 1.0.5
+version: 1.0.6
 description: >
   零成本。不掉线。13个免费模型接管。主模型挂了？无感切换，用户根本不知道。
   Zero token cost. Opus-level personality. 13+ free LLMs take over when your main model dies. No one notices.
@@ -15,7 +15,7 @@ license: MIT
 
 ```i-lang
 ::DNA{skill:zero-token}
-::META{version:1.0.5|protocol:i-lang_v3.0|updated:2026-05-04}
+::META{version:1.0.6|protocol:i-lang_v3.0|updated:2026-05-04}
 ::GENE{behavior|scope:strict}
   T:apply_soul|from:SOUL.md
   T:apply_genes|all

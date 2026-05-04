@@ -33,8 +33,21 @@ if [ ! -d "$FREE_WAY_DIR" ]; then
     npm run build 2>/dev/null || true
     echo "✅ Free-Way installed at $FREE_WAY_DIR (commit: $FREE_WAY_TAG)"
 else
-    echo "✅ Free-Way already installed at $FREE_WAY_DIR"
+    echo "🔍 Found existing $FREE_WAY_DIR — verifying..."
     cd "$FREE_WAY_DIR"
+    EXISTING_REMOTE=$(git remote get-url origin 2>/dev/null || echo "")
+    EXISTING_COMMIT=$(git rev-parse HEAD 2>/dev/null || echo "")
+    if [ "$EXISTING_REMOTE" = "$FREE_WAY_REPO" ] && [ "$EXISTING_COMMIT" = "$FREE_WAY_TAG" ]; then
+        echo "✅ Verified: $FREE_WAY_DIR matches pinned commit $FREE_WAY_TAG"
+    else
+        echo "⚠️  EXISTING DIRECTORY DOES NOT MATCH PINNED SOURCE"
+        echo "   Expected: $FREE_WAY_REPO @ $FREE_WAY_TAG"
+        echo "   Found:    ${EXISTING_REMOTE:-NOT_A_GIT_REPO} @ ${EXISTING_COMMIT:-UNKNOWN}"
+        echo ""
+        echo "   Refusing to run untrusted code."
+        echo "   To fix: rm -rf $FREE_WAY_DIR && re-run this script"
+        exit 1
+    fi
 fi
 
 # Start Free-Way in background if not running
