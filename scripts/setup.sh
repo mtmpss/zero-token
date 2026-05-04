@@ -2,11 +2,11 @@
 # Zero Token Setup — Install Free-Way gateway + configure OpenClaw fallback
 # ⚠️ This installs third-party software (Free-Way by GoDiao).
 #    Review: https://github.com/GoDiao/Free-Way
-#    Pinned version. No auto-update.
+#    Pinned to bf5c60f (2026-05-03). Review before changing.
 set -euo pipefail
 
 FREE_WAY_REPO="https://github.com/GoDiao/Free-Way.git"
-FREE_WAY_TAG="main"  # Pinned — review before changing
+FREE_WAY_TAG="bf5c60f6aac6f6f2eca80f98c1a5a81a023cb165"  # Pinned commit
 FREE_WAY_DIR="$HOME/free-way"
 FREE_WAY_PORT=8787
 
@@ -22,14 +22,16 @@ fi
 
 # Check if Free-Way already installed
 if [ ! -d "$FREE_WAY_DIR" ]; then
-    echo "📦 Installing Free-Way gateway (pinned to $FREE_WAY_TAG)..."
+    echo "📦 Installing Free-Way gateway (pinned)..."
     echo "   Source: $FREE_WAY_REPO"
     echo ""
-    git clone --depth 1 --branch "$FREE_WAY_TAG" "$FREE_WAY_REPO" "$FREE_WAY_DIR"
+    git clone --depth 1 "$FREE_WAY_REPO" "$FREE_WAY_DIR"
     cd "$FREE_WAY_DIR"
+    git fetch --depth 1 origin "$FREE_WAY_TAG"
+    git checkout FETCH_HEAD
     npm install --omit=dev 2>/dev/null || npm install
     npm run build 2>/dev/null || true
-    echo "✅ Free-Way installed at $FREE_WAY_DIR (version: $FREE_WAY_TAG)"
+    echo "✅ Free-Way installed at $FREE_WAY_DIR (commit: $FREE_WAY_TAG)"
 else
     echo "✅ Free-Way already installed at $FREE_WAY_DIR"
     cd "$FREE_WAY_DIR"
