@@ -1,6 +1,6 @@
 ---
 name: zero-token
-version: 1.0.3
+version: 1.0.4
 description: >
   Zero token cost. Premium output. Never offline. Free LLM gateway + behavioral DNA.
   Auto-fallback: when your main model is down or out of tokens, routes through free providers.
@@ -14,7 +14,7 @@ license: MIT
 
 ```i-lang
 ::DNA{skill:zero-token}
-::META{version:1.0.3|protocol:i-lang_v3.0|updated:2026-05-03}
+::META{version:1.0.4|protocol:i-lang_v3.0|updated:2026-05-03}
 ::GENE{behavior|scope:strict}
   T:apply_soul|from:SOUL.md
   T:apply_genes|all
