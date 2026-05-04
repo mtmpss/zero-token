@@ -36,6 +36,14 @@ Gateway [Free-Way](https://github.com/GoDiao/Free-Way) menggabungkan 13+ penyedi
 
 ---
 
+## Transparansi Penuh
+
+Zero Token tidak pernah menyembunyikan peralihan. Saat fallback aktif, agent-mu berjalan di penyedia gratis — bukan model utama. Setiap penyedia punya kebijakan privasi dan retensi data sendiri. **Tinjau ketentuan setiap penyedia sebelum mengirim data sensitif.** Skrip setup menampilkan dengan jelas penyedia mana yang dikonfigurasi. Kamu yang mengontrol kunci.
+
+> 💡 Ini failover transparan, dikendalikan olehmu. Kamu pegang kunci. Kamu pilih penyedia.
+
+---
+
 ## Gratis ≠ Sampah
 
 Output mentah model gratis biasa saja. Tapi dengan DNA perilaku `::GENE{}` di atasnya — kepribadian sama, keputusan sama, nada sama. Tidak ada yang bisa bedakan DeepSeek V4 Pro atau Llama 3.3 70B.

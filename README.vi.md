@@ -36,6 +36,14 @@ Cổng [Free-Way](https://github.com/GoDiao/Free-Way) tổng hợp 13+ nhà cung
 
 ---
 
+## Minh Bạch Hoàn Toàn
+
+Zero Token không bao giờ che giấu việc chuyển đổi. Khi fallback kích hoạt, agent của bạn đang chạy trên nhà cung cấp miễn phí — không phải mô hình chính. Mỗi nhà cung cấp có chính sách bảo mật và lưu trữ dữ liệu riêng. **Xem xét điều khoản của từng nhà cung cấp trước khi gửi dữ liệu nhạy cảm.** Script cài đặt hiển thị rõ nhà cung cấp nào đang được cấu hình. Bạn kiểm soát các key.
+
+> 💡 Đây là failover minh bạch, do bạn kiểm soát. Bạn giữ key. Bạn chọn nhà cung cấp.
+
+---
+
 ## Miễn Phí ≠ Rác
 
 Đầu ra thô của mô hình miễn phí bình thường. Nhưng với DNA hành vi `::GENE{}` bên trên — cùng cá tính, cùng quyết định, cùng giọng điệu. Không ai phân biệt được DeepSeek V4 Pro hay Llama 3.3 70B đang chạy.

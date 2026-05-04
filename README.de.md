@@ -36,6 +36,14 @@ Das [Free-Way](https://github.com/GoDiao/Free-Way)-Gateway bündelt 13+ kostenlo
 
 ---
 
+## Volle Transparenz
+
+Zero Token versteckt den Wechsel niemals. Wenn das Fallback aktiviert wird, läuft dein Agent auf Gratisanbietern — nicht auf deinem Hauptmodell. Jeder Anbieter hat seine eigene Datenschutzrichtlinie und Datenaufbewahrung. **Prüfe die Bedingungen jedes Anbieters, bevor du sensible Daten sendest.** Das Setup-Script zeigt klar, welche Anbieter konfiguriert sind. Du kontrollierst die Schlüssel.
+
+> 💡 Dies ist ein transparentes, von dir kontrolliertes Failover. Du hast die Schlüssel. Du bestimmst die Anbieter.
+
+---
+
 ## Kostenlos ≠ Schrott
 
 Die Rohausgabe von Gratismodellen ist mittelmäßig. Aber mit der `::GENE{}`-Verhaltens-DNA obendrauf — gleiche Persönlichkeit, gleiche Entscheidungen, gleicher Ton. Niemand erkennt, ob DeepSeek V4 Pro oder Llama 3.3 70B läuft.

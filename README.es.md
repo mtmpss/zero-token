@@ -36,6 +36,14 @@ El gateway [Free-Way](https://github.com/GoDiao/Free-Way) agrega 13+ proveedores
 
 ---
 
+## Transparencia Total
+
+Zero Token nunca oculta el cambio. Cuando el fallback se activa, tu agente está funcionando en proveedores gratuitos — no en tu modelo principal. Cada proveedor tiene su propia política de privacidad y retención de datos. **Revisa los términos de cada proveedor antes de enviar datos sensibles.** El script de instalación muestra claramente qué proveedores están configurados. Tú controlas las claves.
+
+> 💡 Este es un failover transparente, controlado por ti. Tú tienes las llaves. Tú decides los proveedores.
+
+---
+
 ## Gratis No Es Basura
 
 La salida bruta de modelos gratis es mediocre. Pero con el ADN conductual `::GENE{}` encima — misma personalidad, mismas decisiones, mismo tono. Nadie distingue si corre DeepSeek V4 Pro o Llama 3.3 70B.

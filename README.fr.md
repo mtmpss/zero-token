@@ -36,6 +36,14 @@ La passerelle [Free-Way](https://github.com/GoDiao/Free-Way) agrège 13+ fournis
 
 ---
 
+## Transparence Totale
+
+Zero Token ne cache jamais le basculement. Quand le fallback s'active, votre agent tourne sur des fournisseurs gratuits — pas sur votre modèle principal. Chaque fournisseur a sa propre politique de confidentialité et de conservation des données. **Vérifiez les conditions de chaque fournisseur avant d'envoyer des données sensibles.** Le script d'installation montre clairement quels fournisseurs sont configurés. Vous contrôlez les clés.
+
+> 💡 C'est un failover transparent, contrôlé par vous. Vous détenez les clés. Vous choisissez les fournisseurs.
+
+---
+
 ## Gratuit ≠ Bâclé
 
 La sortie brute des modèles gratuits est moyenne. Mais avec l'ADN comportemental `::GENE{}` par-dessus — même personnalité, mêmes décisions, même ton. Personne ne distingue DeepSeek V4 Pro de Llama 3.3 70B.

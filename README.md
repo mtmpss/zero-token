@@ -36,6 +36,14 @@ bash ~/.openclaw/workspace/skills/zero-token/scripts/setup.sh
 
 ---
 
+## Full Transparency
+
+Zero Token never hides the switch. When fallback activates, your agent is running on free-tier providers — not your primary model. Every provider has its own privacy policy and data retention. **Review each provider's terms before routing sensitive data.** The setup script shows exactly which providers are configured. You control which keys you add.
+
+> 💡 This is a transparent, user-controlled failover. You hold the keys. You decide the providers.
+
+---
+
 ## Free Isn't Junk
 
 Raw free model output is meh. But layer `::GENE{}` behavioral DNA on top — same personality, same reasoning, same voice. Users can't tell if DeepSeek V4 Pro or Llama 3.3 70B is running.

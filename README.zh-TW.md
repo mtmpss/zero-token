@@ -36,6 +36,14 @@ bash ~/.openclaw/workspace/skills/zero-token/scripts/setup.sh
 
 ---
 
+## 完全透明
+
+Zero Token 從不隱藏切換。fallback 激活時，你的 Agent 跑在免費提供商上——不是你的主力模型。每個提供商有自己的隱私政策和資料保留規則。**發敏感資料前，先看各提供商的條款。** setup 腳本會清楚列出配置了哪些提供商。你決定放哪些 key。
+
+> 💡 這是透明的、你控制的 failover。你拿著 key。你決定提供商。
+
+---
+
 ## 零成本 ≠ 垃圾模型
 
 免費模型裸輸出一般。但 `::GENE{}` 行為 DNA 疊上去之後——同一個人格，同一種決策，同一種語氣。用戶分不清現在跑的是 DeepSeek V4 Pro 還是 Llama 3.3 70B。
